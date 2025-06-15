@@ -1342,8 +1342,15 @@ export default function TokenPage() {
           <AlertDialogHeader>
             <AlertDialogTitle>Konfirmasi Penghapusan</AlertDialogTitle>
             {hierarchyToDelete && <AlertDialogDescription>
-                {`Apakah Anda yakin ingin menghapus hierarki "${hierarchyToDelete.area} > ${hierarchyToDelete.project} > ${hierarchyToDelete.vendor || ''}" untuk token ${tokenTypes.find(t => t.name === hierarchyToDelete.tokenName)?.displayName || hierarchyToDelete.tokenName}? Semua pengaturan token terkait akan ikut terhapus. `}
-                <strong className="text-destructive block mt-2">PERHATIAN PENTING:</strong> Pastikan tidak ada pelanggan yang masih terhubung dengan hierarki ini (Area > Project > Vendor). Menghapus hierarki yang masih digunakan dapat menyebabkan pelanggan tidak dapat melakukan transaksi atau mendapatkan harga yang salah. Tindakan ini tidak dapat dibatalkan setelah password supervisi dimasukkan.
+                <div>
+                  <p>
+                    {`Apakah Anda yakin ingin menghapus hierarki "${hierarchyToDelete.area} > ${hierarchyToDelete.project} > ${hierarchyToDelete.vendor || ''}" untuk token ${tokenTypes.find(t => t.name === hierarchyToDelete.tokenName)?.displayName || hierarchyToDelete.tokenName}? Semua pengaturan token terkait akan ikut terhapus.`}
+                  </p>
+                  <div className="mt-2">
+                    <strong className="text-destructive block">PERHATIAN PENTING:</strong>
+                    <span>Pastikan tidak ada pelanggan yang masih terhubung dengan hierarki ini (Area &gt; Project &gt; Vendor). Menghapus hierarki yang masih digunakan dapat menyebabkan pelanggan tidak dapat melakukan transaksi atau mendapatkan harga yang salah. Tindakan ini tidak dapat dibatalkan setelah password supervisi dimasukkan.</span>
+                  </div>
+                </div>
             </AlertDialogDescription>}
           </AlertDialogHeader>
           <AlertDialogFooter>
