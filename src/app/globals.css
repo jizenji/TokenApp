@@ -1,0 +1,406 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 207 27% 95%; /* Light Gray #F0F4F7 */
+    --foreground: 222.2 84% 4.9%; /* Default Dark Gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%; /* Default Dark Gray */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 222.2 84% 4.9%; /* Default Dark Gray */
+
+    --primary: 199 76% 52%; /* Vibrant Blue #29ABE2 */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --darker-muted-foreground: hsl(215.4 16.3% 39.9%); /* Approx 15% darker than 46.9% L */
+
+    --accent: 180 100% 25%; /* Teal #008080 */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 76% 52%; /* Vibrant Blue for rings */
+
+    --radius: 0.5rem;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Sidebar specific colors from existing sidebar component */
+    --sidebar-background: 0 0% 100%; /* White, or slightly off-white for contrast with main light gray */
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 199 76% 52%; /* Use app primary for active/important sidebar items */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 207 27% 92%; /* Slightly darker/different shade of background for hover */
+    --sidebar-accent-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 199 76% 52%;
+
+    /* Header specific colors */
+    --header-bg: hsl(var(--background));
+    --header-border: hsl(var(--border));
+    --header-foreground: hsl(var(--foreground));
+    
+    /* Orange HSL variables */
+    --orange-primary-hsl: 25 95% 53%; /* Tailwind orange-500 like */
+    --orange-border-hsl: 25 95% 48%;   /* Darker orange for border */
+    --header-text-on-orange-hsl: 0 0% 100%; /* White */
+
+    /* Teal Green for Tabs */
+    --teal-green-bg: 170 60% 40%;
+    --teal-green-fg: 0 0% 100%;
+    --teal-green-hover-bg: 170 60% 35%;
+    --teal-green-active-bg: 170 60% 30%;
+    --teal-green-active-border: 170 70% 50%;
+
+    /* Bottom Navigation Bar */
+    --bottom-nav-background: 170 60% 38%; /* Darkened by ~5% from 40% */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%; /* Default Dark Gray */
+    --foreground: 210 40% 98%; /* Near White */
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 76% 52%; /* Vibrant Blue #29ABE2 */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --darker-muted-foreground: hsl(215 20.2% 55.3%); /* Approx 15% darker than 65.1% L */
+
+    --accent: 180 100% 25%; /* Teal #008080 */
+    --accent-foreground: 0 0% 100%; /* White */
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 76% 40%; /* Darker Blue for rings in dark mode */
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    /* Sidebar specific colors for dark mode */
+    --sidebar-background: 222.2 84% 6.9%; /* Slightly lighter than main dark background */
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 76% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 199 76% 40%;
+
+    /* Header specific colors for dark mode */
+    --header-bg: hsl(var(--background));
+    --header-border: hsl(var(--border));
+    --header-foreground: hsl(var(--foreground));
+
+    /* Teal Green for Tabs - Dark Mode */
+    --teal-green-bg: 170 50% 30%;
+    --teal-green-fg: 180 20% 90%;
+    --teal-green-hover-bg: 170 50% 25%;
+    --teal-green-active-bg: 170 50% 20%;
+    --teal-green-active-border: 170 60% 40%;
+
+    /* Bottom Navigation Bar */
+    --bottom-nav-background: 170 50% 28%; /* Darkened by ~2% from 30% */
+  }
+
+  /* Special Customer Theme */
+  .theme-customer-special {
+    --customer-gradient-from-l: 210 100% 60%; 
+    --customer-gradient-to-l: 175 70% 80%;   
+
+    --background: transparent; 
+    --foreground: 0 0% 100%; 
+
+    --card: 0 0% 100%; 
+    --card-foreground: 210 30% 20%; 
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 30% 20%;
+
+    --primary: 170 75% 38%; 
+    --primary-foreground: 0 0% 100%; 
+
+    --secondary: 175 50% 70%; 
+    --secondary-foreground: 170 75% 30%; 
+
+    --muted: 175 50% 85%; 
+    --muted-foreground: 170 75% 30%; /* Reverted from grey to dark teal */
+    /* For .theme-customer-special, --darker-muted-foreground could be defined here if a different darker muted is needed, or it will inherit from :root/.dark */
+
+
+    --accent: 170 75% 38%; 
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%; 
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 175 50% 85%; 
+    --input: 0 0% 95%; 
+    --ring: 170 75% 38%;
+
+    /* Customer Header Override - These variables are used by default header classes */
+    --header-bg: hsl(var(--orange-primary-hsl));
+    --header-border: hsl(var(--orange-border-hsl));
+    --header-foreground: hsl(var(--header-text-on-orange-hsl));
+    
+    /* Customer Bottom Nav Override */
+    --bottom-nav-background: 170 60% 38%; /* Consistent teal green from image, darkened by ~5% */
+  }
+
+  .dark .theme-customer-special {
+    --customer-gradient-from-d: 210 100% 35%; 
+    --customer-gradient-to-d: 175 70% 25%;   
+    
+    --background: transparent;
+    --foreground: 180 30% 90%; 
+
+    --card: 200 30% 12%; 
+    --card-foreground: 180 30% 85%; 
+
+    --popover: 200 30% 12%;
+    --popover-foreground: 180 30% 85%;
+
+    --primary: 170 65% 45%; 
+    --primary-foreground: 0 0% 100%; 
+
+    --secondary: 180 40% 25%; 
+    --secondary-foreground: 175 50% 80%; 
+
+    --muted: 180 35% 22%; 
+    --muted-foreground: 175 50% 80%; /* Reverted from grey to light teal */
+
+    --accent: 165 65% 55%; 
+    --accent-foreground: 190 10% 10%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 180 40% 30%; 
+    --input: 180 35% 25%; 
+    --ring: 170 65% 45%;
+
+    /* Customer Header Override for Dark Mode - These variables are used by default header classes */
+    --header-bg: hsl(var(--orange-primary-hsl)); 
+    --header-border: hsl(var(--orange-border-hsl));
+    --header-foreground: hsl(var(--header-text-on-orange-hsl));
+
+    /* Customer Bottom Nav Override for Dark Mode */
+    --bottom-nav-background: 170 50% 28%; /* Consistent darker teal green from image, darkened by ~2% */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .customer-header-bg {
+    background-color: hsl(var(--orange-primary-hsl));
+  }
+  .customer-header-border {
+    border-color: hsl(var(--orange-border-hsl));
+  }
+  .customer-header-text-color {
+    color: hsl(var(--header-text-on-orange-hsl));
+  }
+  /* Ensures SVGs within elements having .customer-header-text-color also get the color, assuming they use currentColor */
+  .customer-header-text-color svg {
+    color: hsl(var(--header-text-on-orange-hsl));
+  }
+}
+
+@media print {
+  body, html {
+    background-color: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important; /* Let content define width */
+    height: auto !important; /* Let content define height */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything by default when printing */
+  body > *:not([data-radix-portal]), /* Hide all direct body children except Radix portals */
+  body > header, body > nav, body > footer, body > main, /* Explicitly hide common layout parts */
+  .dialog-footer-print-hide, /* Hide our designated non-print footers */
+  [data-radix-dialog-overlay], /* Hide Radix overlay */
+  /* Hide the default Radix close button INSIDE the dialog if it's not within printable area */
+  .transaction-detail-dialog-content > button[type="button"][aria-label="Close"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ensure Radix portal and its immediate children (which wrap DialogContent) are visible blocks */
+  body > [data-radix-portal],
+  body > [data-radix-portal] > * { /* Targets the div Radix uses to wrap DialogContent */
+    display: block !important;
+    visibility: visible !important;
+    position: static !important; /* Crucial: Override fixed/absolute positioning for portal wrappers */
+    width: auto !important; /* Let content define width */
+    height: auto !important; /* Let content define height */
+    overflow: visible !important;
+    background: none !important; /* No background for portal containers */
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .transaction-detail-dialog-content {
+    display: block !important; /* Ensure it's a block */
+    position: static !important; /* Not fixed or absolute */
+    /* width: 100% !important; Let #printable-receipt-area define actual print width */
+    height: auto !important; /* Auto height */
+    max-height: none !important; /* No max-height restriction */
+    min-height: 0 !important; /* Allow it to be as small as its content */
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important; /* Remove padding from the dialog content wrapper */
+    margin: 0 !important;
+    overflow: visible !important; /* Crucial: No scrollbars on the dialog content wrapper */
+    background-color: white !important; /* Background for the content area if needed */
+    page-break-inside: auto !important; /* Allow the dialog content wrapper to break if its content is too long */
+  }
+
+  /* Target ScrollArea components specifically within the printable dialog */
+  .transaction-detail-dialog-content [data-radix-scroll-area-root],
+  .transaction-detail-dialog-content [data-radix-scroll-area-viewport] {
+    display: block !important; /* Ensure they behave as simple block containers for print */
+    width: auto !important; /* Take width from parent, ultimately from #printable-receipt-area */
+    height: auto !important; /* Expand to content height */
+    max-height: none !important; /* No artificial max height */
+    overflow: visible !important; /* No scrollbars */
+    padding: 0 !important; /* Reset padding if any from ScrollArea defaults */
+    margin: 0 !important; /* Reset margin */
+  }
+
+  /* Hide DialogHeader (which contains DialogTitle and DialogDescription) for print */
+  .transaction-detail-dialog-content > div:first-child[class*="DialogHeader"] { /* Assuming DialogHeader is the first child div */
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  #printable-receipt-area {
+    display: block !important;
+    visibility: visible !important;
+    width: 55mm !important; /* Specific width for the receipt paper */
+    min-height: 10mm !important; /* Minimum height to ensure it's not collapsed if empty */
+    margin: 0 auto !important; /* Center on potentially wider "virtual" paper in print preview */
+    padding: 2mm !important; /* Minimal padding for the receipt content */
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 9pt !important;
+    background-color: white !important;
+    color: black !important;
+    border: none !important; /* No border for the receipt area itself */
+    page-break-inside: avoid !important; /* Try to keep the receipt itself on one page if possible */
+  }
+
+  #printable-receipt-area * { /* Apply to all children of the printable area */
+    visibility: visible !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 9pt !important;
+    color: black !important;
+    background-color: transparent !important; /* Ensure no weird backgrounds from screen styles */
+    line-height: 1.3 !important;
+  }
+
+  .printable-receipt-header {
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+  .printable-receipt-header h2 {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    margin: 0 0 2px 0 !important;
+  }
+  .printable-receipt-header p {
+    font-size: 7pt !important;
+    margin: 0 !important;
+  }
+
+  .receipt-content {
+    margin-top: 4px !important;
+  }
+  .receipt-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 2px !important;
+  }
+  .receipt-item-label {
+    text-align: left !important;
+    padding-right: 5px !important; /* Keep a small gap */
+    white-space: nowrap;
+  }
+  .receipt-item-value {
+    text-align: right !important;
+    font-weight: normal !important; /* Normal weight for values */
+    word-break: break-all; /* Allow long values to wrap if necessary */
+  }
+
+  .receipt-token-code-label {
+    font-weight: bold !important;
+    margin-top: 6px !important;
+    margin-bottom: 1px !important;
+    text-align: left !important; /* Align with other labels */
+  }
+  .receipt-token-code-value {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 10pt !important; /* Slightly larger for token */
+    font-weight: bold !important;
+    text-align: center !important;
+    padding: 3px !important;
+    border: 1px dashed #555 !important;
+    margin: 2px 0 6px 0 !important;
+    word-break: break-all !important; /* Ensure long tokens wrap */
+    background-color: #fdfdfd !important; /* Slight off-white for token box if desired */
+    display: block !important; /* Make it a block to control its layout better */
+  }
+
+  .receipt-footer {
+    text-align: center !important;
+    font-size: 7pt !important;
+    margin-top: 8px !important;
+    padding-top: 4px !important;
+    border-top: 1px dashed #555 !important;
+  }
+}
