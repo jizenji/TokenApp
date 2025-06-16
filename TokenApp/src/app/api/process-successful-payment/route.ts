@@ -178,16 +178,16 @@ export async function POST(request: Request) {
           amount: nominalTokenAmount, // Nominal token value
           generatedTokenCode: generatedToken,
           createdAt: new Date(), 
-          basePrice: basePrice,
-          unitValue: unitValue,
-          // Purchase summary fields
-          adminFee: adminFee,
-          taxAmount: taxAmount,
-          otherCosts: otherCosts,
-          discountAmount: discountAmount,
-          voucherCodeUsed: voucherCodeUsed,
-          originalTotalBeforeDiscount: originalTotalBeforeDiscount,
-          actualTotalPayment: actualTotalPaid,
+          basePrice: basePrice || 0,
+          unitValue: unitValue || '0.00',
+          // Purchase summary fields with default values for undefined fields
+          adminFee: adminFee || 0,
+          taxAmount: taxAmount || 0,
+          otherCosts: otherCosts || 0,
+          discountAmount: discountAmount || 0,
+          voucherCodeUsed: voucherCodeUsed || null,
+          originalTotalBeforeDiscount: originalTotalBeforeDiscount || 0,
+          actualTotalPayment: actualTotalPaid || 0,
         };
         await addDoc(collection(db, 'generated_tokens'), generatedTokenEntry);
         console.log(`[ProcessPayment] Successfully added vended token to generated_tokens for orderId: ${orderId}`);
